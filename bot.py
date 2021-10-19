@@ -4,9 +4,9 @@ def default_event_handler(msg, ctx):
     print("<<", str(msg))
     if msg.command == "PING":
         message.manual("", "PONG", msg.parameters).send(ctx.socket)
-    if msg.command == "001":
+    elif msg.command == "001":
         message.manual("", "JOIN", ["#qrs"]).send(ctx.socket)
-    if msg.command == "PRIVMSG" and "\x01VERSION\x01" in msg.parameters:
+    elif msg.command == "PRIVMSG" and "\x01VERSION\x01" in msg.parameters:
         message.manual(":"+msg.parameters[0], "PRIVMSG", [msg.prefix[1:].split("!")[0], ":\x01dorfl bot\x01"]).send(s)
 class bot:
     def __init__(self):
