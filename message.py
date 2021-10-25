@@ -33,12 +33,24 @@ class message:
 class privmsg:
     def __init__(self):
         self.msg = message()
+        self.fr = ""
+        self.to = ""
+        self.bod = ""
     @staticmethod
     def build(fro, to, body):
         pm = privmsg()
         pm.msg.prefix = ":"+fro
         pm.msg.command = "PRIVMSG"
-        pm.msg.parameters[0] = to
+        pm.msg.parameters.append(to)
         for word in body.split(" "):
             pm.msg.parameters.append(word)
         pm.msg.parameters[1] = ":"+pm.msg.parameters[1]
+        return pm
+    @staticmethod
+    def parse(msg):
+        pm = privmsg()
+        pm.msg = msg
+        pm.fr = msg.prefix[1:]
+        pm.to = msg.parameters[0]
+        pm.bod = (" ".join(msg.parameters) if not(type(msg.parameters) == type(str)) else msg.parameters).split(":")[1]
+        return pm
