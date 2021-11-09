@@ -32,3 +32,5 @@ class bot:
             msgs = [message.parse(raw) for raw in [part for part in data.split("\r\n") if part]]
             for msg in msgs:
                 event_handler(msg, self)
+    def sendraw(self, msg):
+        msg.send(self.socket)
