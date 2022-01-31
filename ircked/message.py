@@ -52,5 +52,5 @@ class privmsg:
         pm.msg = msg
         pm.fr = msg.prefix[1:]
         pm.to = msg.parameters[0]
-        pm.bod = (" ".join(msg.parameters) if not(type(msg.parameters) == type(str)) else msg.parameters).split(":")[1]
+        pm.bod = (" ".join(msg.parameters) if not(type(msg.parameters) == type(str)) else msg.parameters).split(":", 1)[1]
         return pm
