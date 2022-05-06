@@ -12,13 +12,13 @@ def default_event_handler(msg, ctx):
         pm = privmsg.parse(msg)
         if pm.bod == ".hello":
             privmsg.build(ctx.nick, pm.to, "hello, world!").msg.send(ctx.socket)
-class bot:
-    def __init__(self):
+class irc_bot:
+    def __init__(self, nick="dorfl", user="dorfl", real="dorfl"):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.con_to = ()
-        self.nick = "dorfl"
-        self.user = "dorfl"
-        self.real = "dorfl"
+        self.nick = nick
+        self.user = user
+        self.real = real
         self.behaviour = {}
     def connect_register(self, addy, port):
         self.socket.connect((addy, port))

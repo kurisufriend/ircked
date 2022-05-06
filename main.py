@@ -1,6 +1,6 @@
-from ircked.bot import bot
+from ircked.bot import irc_bot
 
-dorfl = bot()
+dorfl = irc_bot()
 dorfl.connect_register("irc.rizon.net", 7000)
 
 dorfl.run()
