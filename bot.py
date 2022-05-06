@@ -1,5 +1,5 @@
 import socket
-from message import *
+from .message import *
 def default_event_handler(msg, ctx):
     print("<<", str(msg))
     if msg.command == "PING":
