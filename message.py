@@ -12,7 +12,7 @@ class message:
             if msg.prefix: 
                 raw.pop(0)
             msg.command = raw[0]
-            msg.parameters = raw[1:][0:15]
+            msg.parameters = raw[1:][0:] #AHAHHAHAHAHA NEGRO WHAT THE FUCK, WAS DROPPING WORDS BECAUSE IT SAID [0:15]
         except:
             pass
         return msg
